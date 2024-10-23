@@ -12,6 +12,11 @@ require 'ejecutarConsultas.php';
     <body>
         <div class="contendorCentrado">
         <table>
+            <tr>
+                <th class="titulos">Nombre</th>
+                <th class="titulos">Apellido</th>
+                <th class="titulos">DNI</th>
+            </tr>
             <?php
                 // Mostrar resultados directamente sin foreach
                 while ($filaDeResultado = $resultado->fetch_assoc()) {   
