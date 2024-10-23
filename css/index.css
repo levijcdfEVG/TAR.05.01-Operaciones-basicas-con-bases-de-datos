@@ -18,34 +18,3 @@
 h1{
     text-align: center;
 }
-
-/*
-Estilos de tabla
-*/
-
-table{
-    border-collapse: collapse;
-    border: 1px solid black;
-    text-align: center;
-}
-
-td{
-    border: 1px solid black;
-    padding: 10px;
-}
-
-tr > td:nth-child(even){
-    background-color: beige;
-}
-
-tr > td:nth-child(odd){
-    background-color: black;
-    color: white;
-}
-
-.titulos{
-    background-color: blue;
-    color: white;
-    padding: 20px;
-    border: 1px solid white;
-}

@@ -8,25 +8,67 @@ require 'ejecutarConsultas.php';
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="css/index.css" />
         <title>Visualizar Consulta</title>
+        <style>
+            table {
+                width: 80%;
+                margin: 20px auto;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+            .contenedorCentrado {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <h1>Resultado</h1>
-        <div class="contendorCentrado">
+        <div class="contenedorCentrado">
             <?php
-                // Mostrar resultados directamente sin foreach
-                while ($filaDeResultado = $resultado->fetch_assoc()) {   
-                    
-                    foreach ($filaDeResultado as $key => $value) {
-                        echo $key.":    ".$value.'<br>';
-                        var_dump($filaDeResultado);
-                        echo "<br>";
-                        
+                if ($resultado->num_rows > 0) {
+                    echo "<table>";
+                    // Obtener los encabezados de las columnas
+                    $filaDeResultado = $resultado->fetch_assoc();
+                    echo "<tr>";
+                    foreach (array_keys($filaDeResultado) as $key) {
+                        echo "<th>" . $key . "</th>";
                     }
-                    echo "------------------------------------------------------------";
-                    echo "<br>";
+                    echo "</tr>";
+                    
+                    // Volver a imprimir la primera fila
+                    echo "<tr>";
+                    foreach ($filaDeResultado as $value) {
+                        echo "<td>" . $value . "</td>";
+                    }
+                    echo "</tr>";
+
+                    // Mostrar el resto de los resultados
+                    while ($filaDeResultado = $resultado->fetch_assoc()) {
+                        echo "<tr>";
+                        foreach ($filaDeResultado as $value) {
+                            echo "<td>" . $value . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "No se encontraron resultados.";
                 }
+
                 $conexion->close();
             ?>
-    </div>
+        </div>
     </body>
 </html>
