@@ -10,6 +10,7 @@ require 'ejecutarConsultas.php';
         <title>Visualizar Consulta</title>
     </head>
     <body>
+        <h1>Resultados</h1>
         <div class="contendorCentrado">
             <table>
                 <?php
