@@ -9,12 +9,14 @@
     <body>
         <h1>Elige una Operación</h1>
         <form class="contendorCentrado" action="ejecutarConsultas.php" method="post">
-            <button type="button">Seleccionar todos los alumnos por orden alfabético del nombre</button>
-            <button type="button">Contar los nombres únicos</button>
-            <button type="button">Seleccionar los apellidos de los dnis por orden de numeración</button>
-            <button type="button">Seleccionar nombres y apellidos únicos de todos los alumnos</button>
-            <input type="text" name="nombreAlumno" />
-            <button type="button">Visualizar todos los dnis de los alumnos con un determinado nombre</button>
+            <select name="consulta">
+                <option value="SELECT nombre FROM alumnos ORDER BY nombre;">Seleccionar todos los alumnos por orden alfabético del nombre</option>
+                <option value="SELECT DISTINCT count(nombre) as Nombres FROM alumnos;">Contar los nombres únicos</option>
+                <option value="SELECT apellido from alumnos ORDER BY dni;">Seleccionar los apellidos de los dnis por orden de numeración</option>
+                <option value="SELECT DISTINCT nombre, apellido FROM alumnos ORDER BY apellido;">Seleccionar nombres y apellidos únicos de todos los alumnos</option>
+            </select>
+            <br>
+            <input type="submit" value="Ejecutar Consulta" />
         </form>
     </body>
 </html>
