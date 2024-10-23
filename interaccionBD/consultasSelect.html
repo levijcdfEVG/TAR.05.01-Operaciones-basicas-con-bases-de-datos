@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="css/index.css" />
-        <title>Elegir Operación</title>
+        <title>Elegir Consulta</title>
     </head>
     <body>
         <h1>Elige una Operación</h1>
@@ -12,11 +12,11 @@
             <!-- No se ponen SQL en los selects debido a que no es seguro y se pueden hacer injecciones SQL -->
             <select name="consulta">
                 <option value="" disabled selected>Selecciona una opcion</option>
-                <option value="SELECT nombre FROM alumnos ORDER BY nombre;" >Seleccionar todos los alumnos por orden alfabético del nombre</option>
-                <option value="SELECT DISTINCT count(nombre) as Nombres FROM alumnos;" >Contar los nombres únicos</option>
-                <option value="SELECT apellido from alumnos ORDER BY dni;" >Seleccionar los apellidos de los dnis por orden de numeración</option>
-                <option value="SELECT DISTINCT nombre, apellido FROM alumnos ORDER BY apellido;" >Seleccionar nombres y apellidos únicos de todos los alumnos</option>
-                <option value="SELECT DISTINCT nombre, apellido, dni FROM alumnos ORDER BY nombre;">Mostrar Todos</option>
+                <option value="mostrarAlumnos" >Seleccionar todos los alumnos por orden alfabético del nombre</option>
+                <option value="contarNombres" >Contar los nombres únicos</option>
+                <option value="mostrarApellidos" >Seleccionar los apellidos de los dnis por orden de numeración</option>
+                <option value="mostrarNombresApellidosUnicos" >Seleccionar nombres y apellidos únicos de todos los alumnos</option>
+                <option value="mostrarTodo">Mostrar Todos</option>
             </select>
             <input type="submit" value="Ejecutar Consulta" />
         </form>
