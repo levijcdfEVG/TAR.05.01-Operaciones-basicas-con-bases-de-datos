@@ -13,9 +13,4 @@ $conexion = new mysqli($host, $user, $pw, $dbName);
 $consulta = $_POST['consulta'];
 $resultado = $conexion->query($consulta);
 
-// Mostrar resultados directamente sin foreach
-while ($filaDeResultado = $resultado->fetch_row()) {
-    echo implode(" ", $filaDeResultado) . "<br />"; //https://www.php.net/manual/en/function.implode.php
-}
-
 

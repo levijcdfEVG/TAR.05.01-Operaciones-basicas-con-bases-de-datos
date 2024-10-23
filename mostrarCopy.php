@@ -11,16 +11,24 @@ require 'ejecutarConsultas.php';
     </head>
     <body>
         <div class="contendorCentrado">
-            <?php
-                // Mostrar resultados directamente sin foreach
-                while ($filaDeResultado = $resultado->fetch_array()) {   
-                
-                    foreach ($filaDeResultado as $key => $value) {
-                        echo $key . '<br>';
-                        echo $value . '<br>';
+            <table>
+                <?php
+                    // Mostrar resultados directamente sin foreach
+                    while ($filaDeResultado = $resultado->fetch_array()) {   
+                        echo "<tr>";
+                        foreach ($filaDeResultado as $key => $value) {
+                            echo "<td>";
+                            echo $key;
+                            echo "</td>";
+                            echo "<td>";
+                            echo $value;
+                            echo "</td>";
+                            
+                        }
+                        echo "</tr>";
                     }
-                }
-            ?>
+                ?>
+            </table>
         </div>
     </body>
 </html>
