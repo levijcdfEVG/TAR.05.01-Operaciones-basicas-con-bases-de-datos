@@ -13,6 +13,7 @@ require 'ejecutarConsultas.php';
                 width: 80%;
                 margin: 20px auto;
                 border-collapse: collapse;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
             }
             th, td {
                 padding: 12px;

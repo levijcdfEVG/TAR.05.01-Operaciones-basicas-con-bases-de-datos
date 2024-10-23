@@ -3,7 +3,7 @@
 
 $host = 'localhost';
 $user = 'root';
-$pw = '20055002'; 
+$pw = ''; 
 $dbName = 'alumnosPruebas';
 
 // Conectar a la base de datos
@@ -13,4 +13,4 @@ $conexion = new mysqli($host, $user, $pw, $dbName);
 $consulta = $_POST['consulta'];
 $resultado = $conexion->query($consulta);
 
-?>
+
