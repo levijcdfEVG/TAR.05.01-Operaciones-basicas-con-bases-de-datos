@@ -3,8 +3,8 @@
 
 $host = 'localhost';
 $user = 'root';
-$pw = ''; // Sin espacio si no hay contraseña
-$dbName = 'alumnosEscuela';
+$pw = '20055002'; 
+$dbName = 'alumnosPruebas';
 
 // Conectar a la base de datos
 $conexion = new mysqli($host, $user, $pw, $dbName);
