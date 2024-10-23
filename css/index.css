@@ -28,6 +28,7 @@ Estilos de tabla
 table{
     border-collapse: collapse;
     border: 1px solid black;
+    text-align: center;
 }
 
 td{
@@ -40,7 +41,7 @@ tr > td:nth-child(even){
 }
 
 tr > td:nth-child(odd){
-    background-color: grey;
+    background-color: black;
     color: white;
 }
 
