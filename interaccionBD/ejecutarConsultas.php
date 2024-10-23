@@ -46,7 +46,7 @@ if (isset($_GET['operacion'])) {
             die("Operación no válida.");
     }
 
-}else if (isset($_POST)) {
+}else if (isset($_POST['operacion'])) {
     $operacion = $_POST['operacion']; // Recoge el value del botón submit
     
     switch ($operacion) {
