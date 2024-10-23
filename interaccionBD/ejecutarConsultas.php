@@ -56,13 +56,15 @@ if (isset($_GET['operacion'])) {
             $apellido = $_POST['apellido'];
             $dni = $_POST['dni'];
             $sql = "INSERT INTO alumnos (nombre, apellido, dni) VALUES ('$nombre', '$apellido', '$dni')";
-            echo "<h1>¡CONSULTA EXITOSA</h1>";
+            $conexion->query($sql);
+            echo "<h1>¡CONSULTA EXITOSA!</h1>";
             break;
 
         case 'borrar':
             // Construir consulta de borrado
             $dni = $_POST['dni'];
             $sql = "DELETE FROM alumnos WHERE dni = '$dni'";
+            $conexion->query($sql);
             echo "<h1>¡CONSULTA EXITOSA</h1>";
             break;
 
@@ -72,6 +74,7 @@ if (isset($_GET['operacion'])) {
             $nuevoNombre = $_POST['nombre'];
             $nuevoApellido = $_POST['apellido'];
             $sql = "UPDATE alumnos SET nombre = '$nuevoNombre', apellido = '$nuevoApellido' WHERE dni = '$dni'";
+            $conexion->query($sql);
             echo "<h1>¡CONSULTA EXITOSA</h1>";
             break;
 
