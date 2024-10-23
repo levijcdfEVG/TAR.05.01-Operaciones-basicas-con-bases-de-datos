@@ -1,20 +1,22 @@
 <?php
-
+// ejecutarConsultas.php
 
 $host = 'localhost';
 $user = 'root';
-$pw = '';
+$pw = ''; // Sin espacio si no hay contraseña
 $dbName = 'alumnosEscuela';
 
-//Conectar a la base de datos
-$conexion = new mysqli($host,$user,$pw,$dbName);
+// Conectar a la base de datos
+$conexion = new mysqli($host, $user, $pw, $dbName);
 
-// Verificar la conexión
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
-}
-
-//Ejecutar las consultas
+// Ejecutar la consulta
 $consulta = $_POST['consulta'];
 $resultado = $conexion->query($consulta);
-header("Location:mostrar.php?result=$resultado");
+
+// Mostrar resultados directamente sin foreach
+while ($filaDeResultado = $resultado->fetch_row()) {
+    echo implode(" ", $filaDeResultado) . "<br />"; //https://www.php.net/manual/en/function.implode.php
+}
+
+$conexion->close();
+

@@ -10,12 +10,26 @@ require 'ejecutarConsultas.php';
         <title>Visualizar Consulta</title>
     </head>
     <body>
-        <h1>Elige una Operación</h1>
         <div class="contendorCentrado">
+        <table>
             <?php
-                
-
+                // Mostrar resultados directamente sin foreach
+                while ($filaDeResultado = $resultado->fetch_assoc()) {   
+                    echo "<tr>";
+                    echo "<td>";
+                    echo $filaDeResultado['nombre'];
+                    echo "</td>";
+                    echo "<td>";
+                    echo $filaDeResultado['apellido'];
+                    echo "</td>";
+                    echo "<td>";
+                    echo $filaDeResultado['dni'];
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                $conexion->close();
             ?>
-        </div>
+        </table>
+    </div>
     </body>
 </html>

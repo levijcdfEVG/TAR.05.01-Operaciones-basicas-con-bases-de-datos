@@ -18,3 +18,16 @@
 h1{
     text-align: center;
 }
+
+/*
+Estilos de tabla
+*/
+
+table{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
+}
