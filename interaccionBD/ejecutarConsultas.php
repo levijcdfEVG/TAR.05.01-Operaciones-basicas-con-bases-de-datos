@@ -9,7 +9,6 @@ $dbName = 'alumnosPruebas';
 // Conectar a la base de datos
 $conexion = new mysqli($host, $user, $pw, $dbName);
 // Inicializar variables
-$resultado = null;
 $operacion = null;
 $sql = "";
 
