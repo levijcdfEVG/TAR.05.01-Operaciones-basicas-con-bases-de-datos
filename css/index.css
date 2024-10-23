@@ -25,7 +25,7 @@ h1{
 */
 .enlacesDeMenu {
     display: inline-block; /* Hace que el enlace se comporte como un bloque */
-    background-color: #4CAF50; /* Color de fondo */
+    background-color: black; /* Color de fondo */
     color: white; /* Color del texto */
     padding: 15px 25px; /* Espaciado interno (padding) */
     text-align: center; /* Centra el texto */
@@ -34,9 +34,10 @@ h1{
     font-size: 16px; /* Tamaño de la fuente */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
     margin: 10px 0; /* Espaciado entre los botones */
+    display: block;
 }
 
 .enlacesDeMenu:hover {
     transform: scale(1.1); /* Aumenta el tamaño al 110% */
-    background-color: #45a049; /* Cambia a un color más oscuro en hover */
+    background-color: red; /* Cambia a un color más oscuro en hover */
 }
