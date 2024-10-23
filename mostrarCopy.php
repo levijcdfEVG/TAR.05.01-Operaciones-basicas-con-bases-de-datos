@@ -11,7 +11,6 @@ require 'ejecutarConsultas.php';
     </head>
     <body>
         <div class="contendorCentrado">
-        <table>
             <?php
                 // Mostrar resultados directamente sin foreach
                 while ($filaDeResultado = $resultado->fetch_array()) {   
@@ -22,7 +21,6 @@ require 'ejecutarConsultas.php';
                     }
                 }
             ?>
-        </table>
-    </div>
+        </div>
     </body>
 </html>

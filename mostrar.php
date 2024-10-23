@@ -11,25 +11,13 @@ require 'ejecutarConsultas.php';
     </head>
     <body>
         <div class="contendorCentrado">
-        <table>
             <?php
                 // Mostrar resultados directamente sin foreach
-                while ($filaDeResultado = $resultado->fetch_assoc()) {   
-                    echo "<tr>";
-                    echo "<td>";
-                    echo $filaDeResultado['nombre'];
-                    echo "</td>";
-                    echo "<td>";
-                    echo $filaDeResultado['apellido'];
-                    echo "</td>";
-                    echo "<td>";
-                    echo $filaDeResultado['dni'];
-                    echo "</td>";
-                    echo "</tr>";
+                while ($filaDeResultado = $resultado->fetch_row()) {
+                    echo implode(" ", $filaDeResultado) . "<br />"; //https://www.php.net/manual/en/function.implode.php
                 }
                 $conexion->close();
             ?>
-        </table>
     </div>
     </body>
 </html>
