@@ -7,20 +7,12 @@
         <title>Modificar Datos</title>
     </head>
     <body>
-        <h1>Elige una Operación</h1>
-        <form class="contendorCentrado" action="mostrar.php" method="post">
-            <form action="ejecutarConsultas.php" method="post">
-                <label for="dni">DNI del Alumno:</label>
-                <input type="text" id="dni" name="dni" placeholder="Ingrese el DNI del alumno" required><br><br>
-                
-                <label for="nombre">Nuevo Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nuevo nombre" required><br><br>
-                
-                <label for="apellido">Nuevo Apellido:</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Ingrese el nuevo apellido" required><br><br>
-                
-                <input type="submit" name="operacion" value="modificar">
-            </form>
-        <br>
+        <h1>Modificar Datos</h1>
+        <form action="ejecutarConsultas.php" method="post">
+            <input type="text" id="dni" name="dni" placeholder="Ingrese el DNI del alumno" required>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nuevo nombre" required>
+            <input type="text" id="apellido" name="apellido" placeholder="Ingrese el nuevo apellido" required>
+            <input type="submit" name="operacion" value="modificar">
+        </form>   
     </body>
 </html>

@@ -58,6 +58,7 @@ if (isset($_GET['operacion'])) {
             $sql = "INSERT INTO alumnos (nombre, apellido, dni) VALUES ('$nombre', '$apellido', '$dni')";
             $conexion->query($sql);
             echo "<h1>¡CONSULTA EXITOSA!</h1>";
+            echo "<a href='../index.html'>Volver al Menu Principal</a>";
             break;
 
         case 'borrar':
@@ -65,7 +66,8 @@ if (isset($_GET['operacion'])) {
             $dni = $_POST['dni'];
             $sql = "DELETE FROM alumnos WHERE dni = '$dni'";
             $conexion->query($sql);
-            echo "<h1>¡CONSULTA EXITOSA</h1>";
+            echo "<h1>¡CONSULTA EXITOSA!</h1>";
+            echo "<a href='../index.html'>Volver al Menu Principal</a>";
             break;
 
         case 'modificar':
@@ -75,7 +77,8 @@ if (isset($_GET['operacion'])) {
             $nuevoApellido = $_POST['apellido'];
             $sql = "UPDATE alumnos SET nombre = '$nuevoNombre', apellido = '$nuevoApellido' WHERE dni = '$dni'";
             $conexion->query($sql);
-            echo "<h1>¡CONSULTA EXITOSA</h1>";
+            echo "<h1>¡CONSULTA EXITOSA!</h1>";
+            echo "<a href='../index.html'>Volver al Menu Principal</a>";
             break;
 
         default:
