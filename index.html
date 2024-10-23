@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Elige una Operación</h1>
-        <form class="contendorCentrado" action="mostrar.php" method="post">
+        <form action="mostrar.php" method="post">
             <!-- No se ponen SQL en los selects debido a que no es seguro y se pueden hacer injecciones SQL -->
             <select name="consulta">
                 <option value="" disabled selected>Selecciona una opcion</option>
@@ -18,6 +18,22 @@
                 <option value="SELECT DISTINCT nombre, apellido FROM alumnos ORDER BY apellido;" disabled>Seleccionar nombres y apellidos únicos de todos los alumnos</option>
                 <option value="SELECT DISTINCT nombre, apellido, dni FROM alumnos ORDER BY nombre;">Mostrar Todos</option>
             </select>
+            <input type="submit" value="Ejecutar Consulta" />
+        </form>
+        <br>
+        <form action="insertar.php" method="post">
+            <label>
+                Nombre:<input type="text" name="nombre" />
+            </label>
+            <br>
+            <label>
+                Apellido:<input type="text" name="apellido" />
+            </label>
+            <br>
+            <label>
+                DNI:<input type="text" name="dni" />
+            </label>
+            <br>
             <input type="submit" value="Ejecutar Consulta" />
         </form>
     </body>
