@@ -18,7 +18,7 @@ if (isset($_GET['operacion'])) {
     switch ($operacion) {
         case 'mostrarAlumnos':
             // Mostrar alumnos ordenados por nombre
-            $resultado = $conexion->query("SELECT nombre FROM alumnos ORDER BY nombre");
+            $resultado = $conexion->query("SELECT nombre as Nombres FROM alumnos ORDER BY nombre");
             break;
         
         case 'contarNombres':
@@ -28,17 +28,17 @@ if (isset($_GET['operacion'])) {
 
         case 'mostrarApellidos':
             // Mostrar apellidos ordenados por DNI
-            $resultado = $conexion->query("SELECT apellido FROM alumnos ORDER BY dni");
+            $resultado = $conexion->query("SELECT apellido as Apellidos FROM alumnos ORDER BY dni");
             break;
 
         case 'mostrarNombresApellidosUnicos':
             // Mostrar nombres y apellidos únicos
-            $resultado = $conexion->query("SELECT DISTINCT nombre, apellido FROM alumnos ORDER BY apellido");
+            $resultado = $conexion->query("SELECT DISTINCT nombre as Nombres, apellido as Apellidos FROM alumnos ORDER BY apellido");
             break;
 
         case 'mostrarTodo':
             // Mostrar todos los datos
-            $resultado = $conexion->query("SELECT DISTINCT nombre, apellido, dni FROM alumnos ORDER BY nombre");
+            $resultado = $conexion->query("SELECT DISTINCT nombre as Nombres, apellido as Apellidos, dni as DNI FROM alumnos ORDER BY nombre");
             break;
 
         default:
