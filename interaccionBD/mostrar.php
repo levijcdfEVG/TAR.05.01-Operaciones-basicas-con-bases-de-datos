@@ -32,6 +32,10 @@ require 'ejecutarConsultas.php';
             .contenedorCentrado {
                 text-align: center;
             }
+
+            h1{
+                text-align: center;
+            }
         </style>
     </head>
     <body>
