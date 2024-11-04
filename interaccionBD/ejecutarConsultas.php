@@ -13,31 +13,37 @@ if (isset($_GET['operacion'])) {
     switch ($operacion) {
         case 'mostrarAlumnos':
             // Mostrar alumnos ordenados por nombre
-            $resultado = $conexion->query("SELECT nombre as Nombres FROM alumnos ORDER BY nombre");
+            $sql = "SELECT nombre as Nombres FROM alumnos ORDER BY nombre";
+            $resultado = $conexion->query($sql);
             break;
         
         case 'contarNombres':
             // Contar nombres únicos
-            $resultado = $conexion->query("SELECT COUNT(DISTINCT nombre) as Nombres FROM alumnos");
+            $sql = "SELECT COUNT(DISTINCT nombre) as Nombres FROM alumnos";
+            $resultado = $conexion->query($sql);
             break;
-
+        
         case 'mostrarApellidos':
             // Mostrar apellidos ordenados por DNI
-            $resultado = $conexion->query("SELECT apellido as Apellidos FROM alumnos ORDER BY dni");
+            $sql = "SELECT apellido as Apellidos FROM alumnos ORDER BY dni";
+            $resultado = $conexion->query($sql);
             break;
-
+        
         case 'mostrarNombresApellidosUnicos':
             // Mostrar nombres y apellidos únicos
-            $resultado = $conexion->query("SELECT DISTINCT nombre as Nombres, apellido as Apellidos FROM alumnos ORDER BY apellido");
+            $sql = "SELECT DISTINCT nombre as Nombres, apellido as Apellidos FROM alumnos ORDER BY apellido";
+            $resultado = $conexion->query($sql);
             break;
-
+        
         case 'mostrarTodo':
             // Mostrar todos los datos
-            $resultado = $conexion->query("SELECT DISTINCT nombre as Nombres, apellido as Apellidos, dni as DNI FROM alumnos ORDER BY nombre");
+            $sql = "SELECT DISTINCT nombre as Nombres, apellido as Apellidos, dni as DNI FROM alumnos ORDER BY nombre";
+            $resultado = $conexion->query($sql);
             break;
-
+        
         default:
             die("Operación no válida.");
+        
     }
 
 }else if (isset($_POST['operacion'])) {
