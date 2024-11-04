@@ -51,7 +51,7 @@ if (isset($_GET['operacion'])) {
             $dni = $_POST['dni'];
 
             // Verificar la existencia del DNI antes de insertar (Ejercicio dia 4 de Noviembre)
-            $sqlVerificacion = "SELECT dni FROM alumnos WHERE dni = '" . $conexion->real_escape_string($dni) . "';";
+            $sqlVerificacion = "SELECT dni FROM alumnos WHERE dni = '" .$dni. "';";
             $resultadoVerificacion = $conexion->query($sqlVerificacion);
 
             if ($resultadoVerificacion && $resultadoVerificacion->num_rows > 0) {
@@ -75,12 +75,24 @@ if (isset($_GET['operacion'])) {
         case 'borrar':
             // Construir consulta de borrado
             $dni = $_POST['dni'];
+
+            // Verificar la existencia del DNI antes de borrar (Ejercicio dia 4 de Noviembre)
+            $sqlVerificacion = "SELECT dni FROM alumnos WHERE dni = '" .$dni. "';";
+            $resultadoVerificacion = $conexion->query($sqlVerificacion);
+
+            if ($resultadoVerificacion && $resultadoVerificacion->num_rows == 0) {
+                // Si existe un alumno con el mismo DNI, regresar con mensaje de error
+                $error = "Error: No existe ese DNI.";
+                include 'borrarDatos.php'; // Incluir el formulario nuevamente con el error
+                return; // Detener la ejecución
+                //Fin del nuevo bloque de codigo
+            }
             $sql = "DELETE FROM alumnos WHERE dni = '$dni'";
             $conexion->query($sql);
             echo "<h1>¡CONSULTA EXITOSA!</h1>";
             echo "<a href='../index.html'>Volver al Menu Principal</a>";
             break;
-
+            
         case 'modificar':
             // Construir consulta de modificación
             $dni =$_POST['dni'];

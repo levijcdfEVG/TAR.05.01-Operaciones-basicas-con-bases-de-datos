@@ -8,8 +8,13 @@
     </head>
     <body>
         <h1>Elige una Operación</h1>
+        <?php
+            if(isset($error)){
+                echo $error.'<br/>';
+            }
+        ?>
         <form action="ejecutarConsultas.php" method="post">
-            <input type="text" name="dni" placeholder="DNI">
+            <input type="text" name="dni" placeholder="DNI" required>
             <input type="submit" name="operacion" value="borrar">
         </form>        
         <br>
