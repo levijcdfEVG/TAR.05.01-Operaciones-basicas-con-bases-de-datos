@@ -12,6 +12,9 @@
             // Conectar con BD
             require 'configuracionBD.php';
 
+            if(isset($error)){
+                echo $error.'<br/>';
+            }
             // Verificar si se ha seleccionado un alumno
             if (!isset($_POST['seleccionarAlumnos'])) {
                 // Formulario para insertar
@@ -48,6 +51,8 @@
                         <input type="submit" name="operacion" value="modificar">
                     </form>';
             }
+
+            require 'verificacionInsert.php';
         ?>  
         <br>
     </body>

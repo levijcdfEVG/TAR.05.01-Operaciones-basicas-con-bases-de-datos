@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/select.css" />
+        <link rel="stylesheet" href="/css/select.css" />
         <title>Elegir Consulta</title>
     </head>
     <body>
-        <h1>Elige una Operación</h1>
+       
         <form class="contendorCentrado" action="mostrar.php" method="get" id="formSelects">
             <!-- No se ponen SQL en los selects debido a que no es seguro y se pueden hacer injecciones SQL -->
+            <label>Elige una Operación</label>
             <select name="operacion">
                 <option value="" disabled selected>Selecciona una opcion</option>
                 <option value="mostrarAlumnos" >Seleccionar todos los alumnos por orden alfabético del nombre</option>
@@ -18,7 +19,7 @@
                 <option value="mostrarNombresApellidosUnicos" >Seleccionar nombres y apellidos únicos de todos los alumnos</option>
                 <option value="mostrarTodo">Mostrar Todos</option>
             </select>
-            <input type="submit"/>
+            <input type="submit" value="Ejecutar Consulta"/>
         </form>
         <br>
     </body>

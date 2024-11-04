@@ -45,14 +45,31 @@ if (isset($_GET['operacion'])) {
     
     switch ($operacion) {
         case 'insertar':
-            // Construir consulta de inserción
+            // Construir consulta de inserción y verificar si el DNI ya existe
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $dni = $_POST['dni'];
-            $sql = "INSERT INTO alumnos (nombre, apellido, dni) VALUES ('$nombre', '$apellido', '$dni')";
-            $conexion->query($sql);
-            echo "<h1>¡CONSULTA EXITOSA!</h1>";
-            echo "<a href='../index.html'>Volver al Menu Principal</a>";
+
+            // Verificar la existencia del DNI antes de insertar (Ejercicio dia 4 de Noviembre)
+            $sqlVerificacion = "SELECT dni FROM alumnos WHERE dni = '" . $conexion->real_escape_string($dni) . "';";
+            $resultadoVerificacion = $conexion->query($sqlVerificacion);
+
+            if ($resultadoVerificacion && $resultadoVerificacion->num_rows > 0) {
+                // Si existe un alumno con el mismo DNI, regresar con mensaje de error
+                $error = "Error: Ya existe un alumno con el mismo DNI.";
+                include 'insertarDatos.php'; // Incluir el formulario nuevamente con el error
+                return; // Detener la ejecución
+                //Fin del nuevo bloque de codigo
+            } else {
+                // Si el DNI no existe, insertar en la base de datos
+                $sql = "INSERT INTO alumnos (nombre, apellido, dni) VALUES ('$nombre', '$apellido', '$dni')";
+                if ($conexion->query($sql)) {
+                    echo "<h1>¡CONSULTA EXITOSA!</h1>";
+                } else {
+                    echo "<h1>Error al insertar: " . $conexion->error . "</h1>";
+                }
+                echo "<a href='../index.html'>Volver al Menu Principal</a>";
+            }
             break;
 
         case 'borrar':
